@@ -11,7 +11,7 @@ body {
 .card {
     position: relative;
     z-index: 10;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.9);
     width: 85%;
     max-width: 450px;
     margin: 10vh auto;
@@ -70,12 +70,12 @@ button:hover {
     display: none;
 }
 
-/* ======== ANIMASI EMOJI MELAYANG ======== */
+/* ======== EMOJI MELAYANG LEMBUT ======== */
 .floating-shape {
     position: fixed;
     bottom: -50px;
     animation: floatUp linear infinite;
-    opacity: 0.9;
+    opacity: 0.85;
     pointer-events: none;
     z-index: 5;
 }
@@ -87,7 +87,7 @@ button:hover {
     }
     50% {
         transform: translateY(-50vh) translateX(30px) rotate(180deg);
-        opacity: 0.8;
+        opacity: 0.9;
     }
     100% {
         transform: translateY(-120vh) translateX(-30px) rotate(360deg);
