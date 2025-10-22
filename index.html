@@ -1,45 +1,90 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I Love You 💖</title>
-  <link rel="stylesheet" href="bucin_card.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffe6e6, #fff5f5);
+            font-family: 'Poppins', sans-serif;
+            color: #b30059;
+            text-align: center;
+            padding: 50px;
+            overflow-x: hidden;
+        }
+        h1 {
+            font-family: 'Sacramento', cursive;
+            font-size: 70px;
+            margin-bottom: 10px;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff80bf, 0 0 20px #ff99cc; }
+            to { text-shadow: 0 0 25px #ff66b2, 0 0 50px #ff3385; }
+        }
+        p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            line-height: 1.8;
+        }
+        .heart {
+            color: #ff4d88;
+            font-size: 30px;
+            animation: beat 1s infinite;
+        }
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+        .button-love {
+            background-color: #ff66b2;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .button-love:hover {
+            background-color: #ff3385;
+            transform: scale(1.1);
+        }
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float 6s linear infinite;
+            color: #ff99cc;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+    </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Hai Sayang 💕</h1>
-    <p>Klik tombol di bawah ini ya...</p>
-    <button id="loveButton">I LOVE YOU 💖</button>
-    <div id="message" class="hidden">
-      <p>Sayang... mungkin aku bukan yang paling sempurna, tapi setiap detik aku selalu bersyukur karena kamu hadir dalam hidupku. 🌷<br><br>
-      Aku ingin kamu tahu, bahwa di antara banyak hal indah di dunia ini — kamu adalah yang paling berharga. Terima kasih sudah jadi rumah, tawa, dan semestaku. 💞<br><br>
-      Aku mencintaimu, hari ini, esok, dan seterusnya. ❤️</p>
-    </div>
-  </div>
+    <h1>💞 Aku Sayang Kamu 💞</h1>
+    <p>Setiap detik bersamamu adalah kebahagiaan yang tak ternilai. Kamu bukan hanya seseorang yang aku cintai, tapi juga rumah tempat hatiku berlabuh. 💕</p>
+    <p class="heart">❤️ ❤️ ❤️</p>
+    <button class="button-love" onclick="showLove()">Klik untuk cinta lebih dalam 💌</button>
 
-  <div class="floating-hearts"></div>
-
-  <script>
-    const button = document.getElementById('loveButton');
-    const message = document.getElementById('message');
-    button.addEventListener('click', () => {
-      message.classList.toggle('show');
-    });
-
-    // Create floating hearts & flowers
-    const container = document.querySelector('.floating-hearts');
-    const shapes = ['💖','💞','🌸','🌷','💐','❤️'];
-    function createShape() {
-      const span = document.createElement('span');
-      span.textContent = shapes[Math.floor(Math.random() * shapes.length)];
-      span.style.left = Math.random() * 100 + 'vw';
-      span.style.animationDuration = 4 + Math.random() * 5 + 's';
-      span.style.fontSize = 16 + Math.random() * 20 + 'px';
-      container.appendChild(span);
-      setTimeout(() => span.remove(), 9000);
-    }
-    setInterval(createShape, 300);
-  </script>
+    <script>
+        function showLove() {
+            for (let i = 0; i < 15; i++) {
+                let heart = document.createElement('div');
+                heart.innerHTML = '💖';
+                heart.classList.add('floating-heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (4 + Math.random() * 3) + 's';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 6000);
+            }
+            alert('Kamu adalah alasan aku tersenyum setiap hari 😘');
+        }
+    </script>
 </body>
 </html>
