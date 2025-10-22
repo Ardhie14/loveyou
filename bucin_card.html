@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Love You 💖</title>
+  <link rel="stylesheet" href="bucin_card.css">
+</head>
+<body>
+  <div class="card">
+    <h1>Hai Sayang 💕</h1>
+    <p>Klik tombol di bawah ini ya...</p>
+    <button id="loveButton">I LOVE YOU 💖</button>
+    <div id="message" class="hidden">
+      <p>Sayang... mungkin aku bukan yang paling sempurna, tapi setiap detik aku selalu bersyukur karena kamu hadir dalam hidupku. 🌷<br><br>
+      Aku ingin kamu tahu, bahwa di antara banyak hal indah di dunia ini — kamu adalah yang paling berharga. Terima kasih sudah jadi rumah, tawa, dan semestaku. 💞<br><br>
+      Aku mencintaimu, hari ini, esok, dan seterusnya. ❤️</p>
+    </div>
+  </div>
+
+  <div class="floating-hearts"></div>
+
+  <script>
+    const button = document.getElementById('loveButton');
+    const message = document.getElementById('message');
+    button.addEventListener('click', () => {
+      message.classList.toggle('show');
+    });
+
+    // Create floating hearts & flowers
+    const container = document.querySelector('.floating-hearts');
+    const shapes = ['💖','💞','🌸','🌷','💐','❤️'];
+    function createShape() {
+      const span = document.createElement('span');
+      span.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+      span.style.left = Math.random() * 100 + 'vw';
+      span.style.animationDuration = 4 + Math.random() * 5 + 's';
+      span.style.fontSize = 16 + Math.random() * 20 + 'px';
+      container.appendChild(span);
+      setTimeout(() => span.remove(), 9000);
+    }
+    setInterval(createShape, 300);
+  </script>
+</body>
+</html>
