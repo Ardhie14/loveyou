@@ -5,32 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kartu Cinta untuk Vina 💖</title>
     <link rel="stylesheet" href="bucin_card.css">
-    <style>
-        /* Animasi emoji cinta */
-        .floating-shape {
-            position: fixed;
-            bottom: -50px;
-            animation: floatUp linear infinite;
-            opacity: 0.9;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: 1;
-            }
-            50% {
-                transform: translateY(-50vh) translateX(30px) rotate(180deg);
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(-120vh) translateX(-30px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="background"></div>
@@ -55,7 +29,7 @@
         const msg = document.getElementById('loveMessage');
         const music = document.getElementById('bgMusic');
 
-        // Pastikan musik bisa dimainkan di beberapa browser
+        // Pastikan musik bisa dimainkan di browser
         document.body.addEventListener('click', () => {
             music.play().catch(() => {});
         }, { once: true });
@@ -80,6 +54,7 @@
             createBurst();
         });
 
+        // Emoji melayang cepat
         const shapes = ['💗', '🌸', '💞', '🌷', '💕', '🌹', '💖', '✨', '🪨', '💘', '💝', '💓'];
 
         function createFloatingShape() {
@@ -100,6 +75,7 @@
             }
         }
 
+        // efek badai cinta
         setInterval(() => {
             for (let i = 0; i < 5; i++) createFloatingShape();
         }, 300);
