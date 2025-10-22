@@ -3,34 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kartu Cinta Digital 💖</title>
+    <title>Kartu Cinta untuk Vina 💖</title>
     <link rel="stylesheet" href="bucin_card.css">
+    <style>
+        /* Animasi emoji cinta */
+        .floating-shape {
+            position: fixed;
+            bottom: -50px;
+            animation: floatUp linear infinite;
+            opacity: 0.9;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-50vh) translateX(30px) rotate(180deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-120vh) translateX(-30px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="background"></div>
 
     <div class="card">
-        <h1>Hai Sayangku 💕</h1>
-        <p class="intro">Aku punya sesuatu buat kamu... tapi jangan senyum dulu, nanti tambah jatuh cinta 😳</p>
+        <h1>Hai Vina, Cintaku 💕</h1>
+        <p class="intro">Dari sekian banyak senyum di dunia, cuma punyamu yang bisa bikin aku lupa cara marah 😳💞</p>
         <hr>
-        <p class="quote">“Cinta itu kayak kamu — manis, bikin candu, tapi kalau nggak ada sehari aja aku bisa rusak.” 💞</p>
-        <button id="loveBtn">I LOVE YOU 💕</button>
+        <p class="quote">“Vina, kamu itu bukan sekadar nama... kamu itu rumah buat hatiku yang suka nyasar.” 💓</p>
+        <button id="loveBtn">💘 Klik untuk cinta yang lebih dalam 💘</button>
         <p id="loveMessage" class="hidden"></p>
     </div>
+
+    <!-- Musik romantis -->
+    <audio id="bgMusic" autoplay loop>
+        <source src="https://cdn.pixabay.com/download/audio/2023/03/22/audio_0f32d802cf.mp3?filename=romantic-background-piano-143859.mp3" type="audio/mpeg">
+        Browser kamu tidak mendukung audio 😢
+    </audio>
 
     <script>
         const btn = document.getElementById('loveBtn');
         const msg = document.getElementById('loveMessage');
+        const music = document.getElementById('bgMusic');
+
+        // Pastikan musik bisa dimainkan di beberapa browser
+        document.body.addEventListener('click', () => {
+            music.play().catch(() => {});
+        }, { once: true });
 
         const loveQuotes = [
-            "Kamu tau nggak? Tiap kali aku lihat kamu, jantungku tuh kayak habis minum kopi — deg-degan, tapi enak banget ☕💓",
-            "Kamu tuh kayak notifikasi di HP. Begitu muncul, langsung bikin aku senyum tanpa alasan 😍📱",
-            "Kalau disuruh milih antara oksigen dan kamu... ya jelas aku milih kamu, soalnya tanpa kamu aku juga nggak bisa napas 💘",
-            "Kamu tuh kayak lagu favorit. Aku nggak pernah bosen ngulangin, karena setiap detik bersamamu tuh enak banget 🎵💖",
-            "Setiap kali kamu bilang 'hehe', aku kayak kena listrik cinta 220 volt 😳⚡",
-            "Aku nggak butuh yang sempurna, cukup kamu aja yang sering nyebelin tapi nggak bisa aku lupain 🥹💞",
-            "Kamu tuh kayak WiFi, sinyalnya kuat banget di hati aku 😳📶",
-            "Kalau cinta itu dosa... yaudah, aku siap masuk neraka bareng kamu 😈❤️‍🔥"
+            "Vina, tiap kali kamu senyum, rasanya dunia kayak ikut tersipu malu 😳🌸",
+            "Kamu tuh kayak donat, manisnya nggak habis-habis, dan bikin aku pengen gigit terus 🍩💗",
+            "Kalau cinta itu penyakit, kayaknya aku udah stadium Vina — nggak bisa disembuhin 😝❤️",
+            "Vina, kamu tuh kayak playlist favorit aku, nggak pernah aku skip 🎧💞",
+            "Aku tuh nggak bisa tidur, bukan karena kopi... tapi karena mikirin kamu terus ☕💘",
+            "Kalau disuruh milih antara tidur dan chat sama kamu, aku milih kamu — walau besok mata panda 🐼💌",
+            "Vina, kamu tau nggak... tiap kali lihat kamu, hatiku kayak WiFi — langsung nyambung tanpa sandi 📶💞",
+            "Kalau aku jadi pahlawan, kamu tuh alasan kenapa aku rela berjuang tiap hari, Vina 💪💘",
+            "Kamu bukan kopi, tapi bikin candu tiap kali aku inget senyum kamu ☕💕",
+            "Vina, kalau cinta itu api, kamu pemantik yang nyalain semuanya 🔥💖"
         ];
 
         btn.addEventListener('click', () => {
@@ -40,28 +80,29 @@
             createBurst();
         });
 
-        // Elemen melayang (hati dan bunga)
-        const shapes = ['💗', '🌸', '💞', '🌷', '💕', '🌹'];
+        const shapes = ['💗', '🌸', '💞', '🌷', '💕', '🌹', '💖', '✨', '🪨', '💘', '💝', '💓'];
 
         function createFloatingShape() {
             const shape = document.createElement('div');
             shape.classList.add('floating-shape');
             shape.textContent = shapes[Math.floor(Math.random() * shapes.length)];
             shape.style.left = Math.random() * 100 + 'vw';
-            shape.style.fontSize = (15 + Math.random() * 20) + 'px';
-            shape.style.animationDuration = 5 + Math.random() * 8 + 's';
-            shape.style.animationDelay = Math.random() * 3 + 's';
+            shape.style.fontSize = (15 + Math.random() * 25) + 'px';
+            shape.style.animationDuration = 3 + Math.random() * 4 + 's';
+            shape.style.animationDelay = Math.random() * 1.5 + 's';
             document.body.appendChild(shape);
-            setTimeout(() => shape.remove(), 10000);
+            setTimeout(() => shape.remove(), 6000);
         }
 
         function createBurst() {
-            for (let i = 0; i < 15; i++) {
-                setTimeout(createFloatingShape, i * 100);
+            for (let i = 0; i < 25; i++) {
+                setTimeout(createFloatingShape, i * 80);
             }
         }
 
-        setInterval(createFloatingShape, 400);
+        setInterval(() => {
+            for (let i = 0; i < 5; i++) createFloatingShape();
+        }, 300);
     </script>
 </body>
 </html>
