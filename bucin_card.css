@@ -1,78 +1,102 @@
 body {
     margin: 0;
-    height: 100vh;
-    background-color: #ffe6f2;
+    padding: 0;
     overflow: hidden;
-    font-family: 'Poppins', sans-serif;
+    background: url('https://i.ibb.co/Zm7sHDT/sunset-sky-romantic.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
+/* ======== KARTU ======== */
 .card {
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
-    padding: 30px;
-    text-align: center;
-    width: 350px;
-    margin: 100px auto;
     position: relative;
     z-index: 10;
+    background: rgba(255, 255, 255, 0.92);
+    width: 85%;
+    max-width: 450px;
+    margin: 10vh auto;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 35px rgba(255, 105, 180, 0.5);
+    text-align: center;
+    animation: fadeIn 2s ease;
 }
 
 h1 {
-    color: #ff69b4;
+    color: #ff4081;
+    font-size: 32px;
+    text-shadow: 0 0 10px rgba(255, 192, 203, 0.7);
 }
 
-.message {
+.intro {
     color: #555;
+    margin-bottom: 10px;
     font-size: 16px;
-    margin-bottom: 20px;
-    line-height: 1.5;
+}
+
+.quote {
+    color: #ff4b91;
+    font-style: italic;
+    margin: 15px 0;
 }
 
 button {
-    background: #ff69b4;
+    background-color: #ff80ab;
     color: white;
     border: none;
-    padding: 10px 20px;
     border-radius: 25px;
-    font-size: 16px;
+    padding: 12px 25px;
     cursor: pointer;
-    transition: 0.3s;
+    font-size: 16px;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
 }
 
 button:hover {
-    background: #ff1493;
+    background-color: #ff4b91;
+    transform: scale(1.1);
 }
 
-#loveText {
-    margin-top: 20px;
-    color: #d63384;
+#loveMessage {
+    margin-top: 15px;
+    color: #ff4081;
     font-weight: bold;
+    font-size: 18px;
+    line-height: 1.5;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .hidden {
     display: none;
 }
 
-/* Animasi hati & bunga melayang */
-.floating {
+/* ======== ANIMASI EMOJI MELAYANG ======== */
+.floating-shape {
     position: fixed;
-    bottom: 0;
-    width: 20px;
-    height: 20px;
-    background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
-    background-size: cover;
-    opacity: 0.8;
+    bottom: -50px;
     animation: floatUp linear infinite;
+    opacity: 0.9;
+    pointer-events: none;
+    z-index: 5;
 }
 
 @keyframes floatUp {
-    from {
-        transform: translateY(0) rotate(0deg);
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
         opacity: 1;
     }
-    to {
-        transform: translateY(-110vh) rotate(360deg);
+    50% {
+        transform: translateY(-50vh) translateX(30px) rotate(180deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-120vh) translateX(-30px) rotate(360deg);
         opacity: 0;
     }
+}
+
+/* ======== ANIMASI MASUK ======== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
 }
